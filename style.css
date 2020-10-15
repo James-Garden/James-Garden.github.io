@@ -1,3 +1,54 @@
 body {
   font-family: Calibri, Arial, sans-serif;
 }
+
+button.nav {
+  background-color: DodgerBlue;
+  font-family: Helvetica;
+  border: 1px solid DarkBLue;
+  padding: 15px 32px;
+  color: white;
+  font-size: 24px;
+  margin: 0 0;
+  transition: 0.3s;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: CornflowerBlue;
+  text-shadow: 1px 1px 2px Gray;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: DarkBlue;
+}
+
+a.nav:visited {
+
+}
+
+button.nav:hover {
+  background-color: DarkBlue;
+}
+
+#home {margin-left: 0;}
+
+
+div.sign-in {
+    display: table-row;
+}
+
+label, input {
+    display: table-cell;
+}
+
+label {
+    padding-right: 10px;
+}
+
+div.song {
+  width:380px;
+  height:300px;
+}

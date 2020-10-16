@@ -12,6 +12,7 @@ footer {
   position: fixed;
   width: 100%;
   display: inline;
+  color: white;
 }
 
 .nav {
@@ -53,7 +54,7 @@ button.nav:focus {
 }
 
 .main-content {
-  margin-left: 1.5em;
+  margin-left: 1%;
 }
 
 #main-vid {

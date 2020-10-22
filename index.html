@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <title>Home | James-Garden</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(".hiding").click(function () {
+        $(this).hide(400);
+      });
+    });
+  </script>
   <style>
     body {
       background-image: url('main-image.png');
@@ -21,10 +30,13 @@
     </ul>
   </header>
   <main>
-    <h1 style="margin-left: 1%;">Welcome to the Gabe zone</h1>
-    <div id="main-vid"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/E580ekyqGZI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
     <div class="main-content">
-
+      <h1>Placeholder title</h1>
+      <button id="testBtn">JS test</button>
+      <p id="testP">test1</p>
+      <div>
+        <p class="hiding">Click to hide me!</p>
+      </div>
     </div>
   </main>
   <footer>

@@ -22,11 +22,28 @@ $(document).ready(function(){ //This function triggers when the page is fully lo
   });
   $(document).ready(function(){
     $(document).bind('keydown', function(e) {
-        if (e.which == 27) {
-            document.getElementById("sidenav").style.width = "0";
-            $(".search-bar").slideUp("slow");
-        }
+      if (e.which == 27) {
+          document.getElementById("sidenav").style.width = "0";
+          $(".search-bar").slideUp("slow");
+      }
     });
-});
-
+  });
+  $(window).click(function() {
+    if ($(".sidenav").css("width")!="0px") {
+      document.getElementById("sidenav").style.width = "0";
+    }
+    if (!searchHidden) {
+      searchHidden = true;
+      $(".search-bar").slideUp("slow");
+    }
+  });
+  $(".sidenav").click(function(event){
+    event.stopPropagation();
+  });
+  $(".search-bar").click(function(event){
+    event.stopPropagation();
+  });
+  $(".button-search").click(function(event){
+    event.stopPropagation();
+  });
 });

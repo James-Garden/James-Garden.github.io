@@ -101,6 +101,18 @@ header button:hover {
   letter-spacing: 3.6px;
 }
 
+.search-form {
+  width:100%;
+}
+
+.search-input {
+  width:95%;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
 .search-wrapper {
   display: flex;
   padding-left: 50px;

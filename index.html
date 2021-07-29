@@ -2,30 +2,29 @@
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">
-  <title>The Void</title>
+  <title>My Media List</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="script.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 <body>
   <!--This is the side menu-->
   <div class="sidenav" id="sidenav">
     <div class="sidenav-flex">
       <button class="button-close-side-menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-        </svg>
+        <i class="bi bi-x"></i>
       </button><br>
     </div>
     <div class="side-menu-links">
       <button class="button-link" id="test-1">
-        Test 1
+        <a href="#"><i class="bi bi-film"></i> Films</a>
       </button><br>
       <button class="button-link" id="test-2">
-        Test 2
+        <a href="#"><i class="bi bi-tv"></i> TV</a>
       </button><br>
       <button class="button-link" id="test-3">
-        Test 3
+        <a href="#"><i class="bi bi-book"></i> Books</a>
       </button><br>
     </div>
   </div>
@@ -34,23 +33,20 @@
     <div class="header-wrapper">
       <div class="header-flex-left">
         <button class="button-menu">
-          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-          </svg>
+          <i class="bi bi-list"></i>
         </button>
       </div>
       <div class="header-flex-logo">
-        <button class="button-logo">
-          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-box" viewBox="0 0 16 16">
-            <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5 8.186 1.113zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
-          </svg>
-        </button>
+        <a href = "index.html"><button class="button-logo">
+          <i class="bi bi-collection"></i>
+        </button></a>
       </div>
       <div class="header-flex-right">
+        <a href="#"><button class="button-profile">
+          <i class="bi bi-person-circle"></i>
+        </button></a>
         <button class="button-search">
-          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-          </svg>
+          <i class="bi bi-search"></i>
         </button>
       </div>
     </div>
@@ -60,9 +56,7 @@
     <div class="search-wrapper">
       <form>
         <label for="user-query">
-          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-          </svg>
+          <i class="bi bi-search"></i>
         </label>
         <input type="text" name="userquery" placeholder="SEARCH..."><br>
       </form>
@@ -70,8 +64,8 @@
   </div>
   <!--This is the main page content-->
   <main>
-    <iframe src="home.html" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" width="100%" height="1080px">
-    </iframe>
+    <h1>test header</h1>
+    <img src="https://image.myanimelist.net/ui/5LYzTBVoS196gvYvw3zjwHq5fEG128vSz3WOMzWLJ2k">
   </main>
   <!--This is the footer-->
   <footer>

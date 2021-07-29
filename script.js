@@ -1,4 +1,5 @@
 var searchHidden = true; //This defines the initial state of the search bar
+
 $(document).ready(function(){ //This function triggers when the page is fully loaded
   //This is the function for opening the search bar
   //$(".search-bar").hide(); //This closes the search bar when the page loads
@@ -19,4 +20,13 @@ $(document).ready(function(){ //This function triggers when the page is fully lo
   $(".button-close-side-menu").click(function(){
     document.getElementById("sidenav").style.width = "0";
   });
+  $(document).ready(function(){
+    $(document).bind('keydown', function(e) {
+        if (e.which == 27) {
+            document.getElementById("sidenav").style.width = "0";
+            $(".search-bar").slideUp("slow");
+        }
+    });
+});
+
 });

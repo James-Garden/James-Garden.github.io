@@ -1,3 +1,4 @@
+/* Style properties for main content*/
 body {
   font-family: Calibri, Arial, sans-serif;
   display:inline;
@@ -5,8 +6,9 @@ body {
 }
 
 main {
-
+  padding: 10px;
 }
+
 /* Style properties for footer */
 footer {
   position: fixed;
@@ -111,6 +113,8 @@ header button:hover {
 
 .sidenav {
   height: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
   width: 0;
   position: absolute;
   z-index: 1;
@@ -137,6 +141,11 @@ header button:hover {
 
 .side-menu-links {
   margin-left: 1vw;
+}
+
+.side-menu-links a {
+  color: inherit;
+  text-decoration-line: none;
 }
 
 .sidenav-flex {

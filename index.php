@@ -1,3 +1,7 @@
+<?php
+$mysqli = new mysqli("127.0.0.1","php","peanuts","mml",3306);
+?>
+
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -65,7 +69,13 @@
   <!--This is the main page content-->
   <main>
     <h1>test header</h1>
-    <img src="https://image.myanimelist.net/ui/5LYzTBVoS196gvYvw3zjwHq5fEG128vSz3WOMzWLJ2k">
+    <?php
+      $result = $mysqli->query("SELECT * FROM media");
+      foreach ($result as $row) {
+        echo "Title: " . $row['name'] . "\n";
+        echo "<img src=\"cover_images/" . $row['cover_image'] . "\">\n";
+      }
+     ?>
   </main>
   <!--This is the footer-->
   <footer>

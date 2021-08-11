@@ -48,7 +48,7 @@ $mysqli = new mysqli("127.0.0.1","php","peanuts","mml",3306);
         </button>
       </div>
       <div class="header-flex-logo">
-        <a href = "index.html"><button class="button-logo">
+        <a href = "index.php"><button class="button-logo">
           <i class="bi bi-collection"></i>
         </button></a>
       </div>
@@ -69,7 +69,7 @@ $mysqli = new mysqli("127.0.0.1","php","peanuts","mml",3306);
         <label for="user-query">
           <i class="bi bi-search"></i>
         </label>
-        <input type="text" name="userquery" placeholder="SEARCH..." class="search-input"><br>
+        <input type="search" name="userquery" placeholder="SEARCH..." class="search-input"><br>
       </form>
     </div>
   </div>
@@ -77,7 +77,7 @@ $mysqli = new mysqli("127.0.0.1","php","peanuts","mml",3306);
   <main>
     <h1>test header</h1>
     <?php
-      $result = $mysqli->query("SELECT * FROM media");
+      $result = $mysqli->query("SELECT * FROM media LIMIT 3");
       foreach ($result as $row) {
         echo "Title: " . $row['name'] . "\n";
         echo "<img src=\"cover_images/" . $row['cover_image'] . "\" width=\"259\" height=\"384\">\n";

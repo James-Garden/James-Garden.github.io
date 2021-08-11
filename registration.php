@@ -37,7 +37,7 @@
         </button>
       </div>
       <div class="header-flex-logo">
-        <a href = "index.html"><button class="button-logo">
+        <a href = "index.php"><button class="button-logo">
           <i class="bi bi-collection"></i>
         </button></a>
       </div>
@@ -58,7 +58,7 @@
         <label for="user-query">
           <i class="bi bi-search"></i>
         </label>
-        <input type="text" name="userquery" placeholder="SEARCH..." class="search-input"><br>
+        <input type="search" name="userquery" placeholder="SEARCH..." class="search-input"><br>
       </form>
     </div>
   </div>

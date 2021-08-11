@@ -1,8 +1,25 @@
 var searchHidden = true; //This defines the initial state of the search bar
 
 $(document).ready(function(){ //This function triggers when the page is fully loaded
-  //This is the function for opening the search bar
-  //$(".search-bar").hide(); //This closes the search bar when the page loads
+  $('#media_type').on('change', function() {
+    if ($('select#media_type').val()=="film") {
+      $('#book_form').css('display',"none");
+      $('#tv_form').css('display',"none");
+      $('#film_form').css('display',"block");
+    }
+    if ($('select#media_type').val()=="tv_series") {
+      $('#book_form').css('display',"none");
+      $('#tv_form').css('display',"block");
+      $('#film_form').css('display',"none");
+    }
+    if ($('select#media_type').val()=="book") {
+      $('#book_form').css('display',"block");
+      $('#tv_form').css('display',"none");
+      $('#film_form').css('display',"none");
+    }
+      //document.getElementById(divId).style.display = element.value == 1 ? 'block' : 'none';
+
+  });
   $(".button-search").click(function(){
     if (searchHidden) {
       searchHidden = false;

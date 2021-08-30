@@ -65,7 +65,7 @@
   <!--This is the main page content-->
   <main>
     <h1>Create a New Account</h1>
-    <form class="register-form" action="index.php" method="post">
+    <form class="register-form" action="submit_registration.php" method="post">
       <p>Username</p>
       <input type="text" name="reg-username" placeholder="Username" required><br>
       <p>Email</p>

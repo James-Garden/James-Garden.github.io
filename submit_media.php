@@ -34,8 +34,21 @@
         $query->execute();
         break;
       case "film":
+        $query = $conn->prepare("INSERT INTO film (film_id,runtime,release_date) VALUES (?,?,?)");
+        $query->bind_param("iis",$film_id,$film_length,$release_date);
+        $film_id = $this_media_id;
+        $film_length = $_POST['runtime'];
+        $release_date = $_POST['release_date_film'];
+        $query->execute();
         break;
       case "tv_series":
+        $query = $conn->prepare("INSERT INTO tv (tv_id,episode_count,first_aired,finished_airing) VALUES (?,?,?,?)");
+        $query->bind_param("iiss",$tv_id,$episode_count,$first_aired,$finished_airing);
+        $tv_id = $this_media_id;
+        $episode_count = $_POST['episode_count'];
+        $first_aired = $_POST['first_aired'];
+        $finished_airing = $_POST['last_aired'];
+        $query->execute();
         break;
     }
   }

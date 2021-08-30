@@ -77,7 +77,7 @@ $mysqli = new mysqli("127.0.0.1","php","peanuts","mml",3306);
   <main>
     <h1>test header</h1>
     <?php
-      $result = $mysqli->query("SELECT * FROM media LIMIT 3");
+      $result = $mysqli->query("SELECT * FROM media ORDER BY RAND() LIMIT 3");
       foreach ($result as $row) {
         echo "Title: " . $row['name'] . "\n";
         echo "<img src=\"cover_images/" . $row['cover_image'] . "\" width=\"259\" height=\"384\">\n";

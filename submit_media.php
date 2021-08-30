@@ -63,7 +63,7 @@
 <!DOCTYPE html>
 <head>
   <title>Redirect</title>
-  <!--<meta http-equiv="refresh" content="0; url=index.php" />-->
+  <meta http-equiv="refresh" content="0; url=index.php" />
 </head>
 <body>
   <h3>You should be redirected shortly</h3>

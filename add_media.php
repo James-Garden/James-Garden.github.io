@@ -15,7 +15,8 @@ if (!isAdmin()) {
    <p>Cover Image</p>
    <input type="file" name="media_cover" required><br>
    <p>Description</p>
-   <textarea name="media_desc" placeholder="Description..." maxlength="65535" rows="5" cols="50" required></textarea><br>
+   <p><a href="https://wordcounter.net/character-count">Character Counter</a></p>
+   <textarea name="media_desc" placeholder="Description should be about 500 characters or 90 words" maxlength="65535" rows="5" cols="50" required></textarea><br>
    <p>Media Type</p>
    <select name="media_type" id="media_type" placeholder="">
      <option disabled selected value>--Media Type--</option>

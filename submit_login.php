@@ -1,4 +1,5 @@
 <?php
+  session_start();
   $conn = new mysqli("127.0.0.1","root","C1aran!183","mml",3306); //Attempts to connect to MySQL database
 
   if ($conn->connect_error) {
@@ -20,6 +21,18 @@
     }
     if(password_verify($_POST['password'],$stored_password)) {
       echo "Correct password!";
+      $get_id = $conn->prepare("SELECT user_id FROM user WHERE username = ?");
+      $get_id->bind_param("s",$username);
+      $username = $_POST['username'];
+      $get_id->execute();
+      $get_id->store_result();
+      $get_id->bind_result($id_query);
+      $get_id->fetch();
+      $stored_id = $id_query;
+      $_SESSION['user_id'] = $id_query;
+      $_SESSION['username'] = $username;
+      $_SESSION['loggedIn'] = true;
+      header("Location: profile.php");
     } else { //If password incorrect
       header("Location: login.php?incorrectPassword=true");
       die();
@@ -29,6 +42,7 @@
     echo "An error has occurred, this incident will be reported automatically.";
     die("Error message: " . $e->getMessage());
   }
+  $get_id->close();
   $get_password->close();
   $conn->close();
 ?>
@@ -36,7 +50,6 @@
 <!DOCTYPE html>
 <head>
   <title>Redirect</title>
-  <meta http-equiv="refresh" content="0; url=index.php" />
 </head>
 <body>
   <h3>You should be redirected shortly</h3>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$mysqli = new mysqli("127.0.0.1","php","peanuts","mml",3306);
+require('functions.php');
 ?>
 
 <!DOCTYPE html>
@@ -29,15 +29,22 @@ $mysqli = new mysqli("127.0.0.1","php","peanuts","mml",3306);
       </button><br>
     </div>
     <div class="side-menu-links">
-      <button class="button-link" id="test-1">
+      <button class="button-link">
         <a href="#"><i class="bi bi-film"></i> Films</a>
       </button><br>
-      <button class="button-link" id="test-2">
+      <button class="button-link">
         <a href="#"><i class="bi bi-tv"></i> TV</a>
       </button><br>
-      <button class="button-link" id="test-3">
+      <button class="button-link">
         <a href="#"><i class="bi bi-book"></i> Books</a>
       </button><br>
+      <?php
+      if (isAdmin()) {
+        echo "<button class=\"button-link\">";
+        echo "<a href=\"add_media.php\"><i class=\"bi bi-briefcase\"></i> Admin Portal</a>";
+        echo "</button><br>";
+      }
+      ?>
     </div>
   </div>
   <!--This is the header-->
@@ -54,9 +61,21 @@ $mysqli = new mysqli("127.0.0.1","php","peanuts","mml",3306);
         </button></a>
       </div>
       <div class="header-flex-right">
-        <a href="login.php"><button class="button-profile">
-          <i class="bi bi-person-circle"></i>
-        </button></a>
+        <?php
+          if (!empty($_SESSION['loggedIn']) && $_SESSION['loggedIn']) {
+            echo "<div><a href=\"profile.php\"><button class=\"button-profile\">";
+            echo $_SESSION['username'];
+            echo "<i class=\"bi bi-person-circle\"></i></button></a></div>";
+            echo "<div class=\"logout-dropdown\">"."<button id=\"logout-button\">Log Out</button>"."</div>";
+          } else {
+            echo "<a href=\"login.php\"><button class=\"button-profile\"><span>";
+            echo "Log In";
+            echo " </span><i class=\"bi bi-person-circle\"></i></button></a>";
+          }
+        ?>
+        <!--<div class="logout-dropdown">
+          <button id="logout-button">Log Out</button>
+        </div>-->
         <button class="button-search">
           <i class="bi bi-search"></i>
         </button>
@@ -66,11 +85,11 @@ $mysqli = new mysqli("127.0.0.1","php","peanuts","mml",3306);
   <!--This is the search bar-->
   <div class="search-bar">
     <div class="search-wrapper">
-      <form class="search-form">
+      <form class="search-form" action="search.php">
         <label for="user-query">
           <i class="bi bi-search"></i>
         </label>
-        <input type="search" name="userquery" placeholder="SEARCH..." class="search-input"><br>
+        <input type="search" name="q" placeholder="SEARCH..." class="search-input"><br>
       </form>
     </div>
   </div>

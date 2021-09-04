@@ -7,6 +7,8 @@ body {
 
 main {
   padding: 10px;
+  margin-top: 80px;
+  margin-bottom: 60px;
 }
 
 /* Style properties for footer */
@@ -21,10 +23,10 @@ footer {
 
 .footer-wrapper {
   display: flex;
-  padding-right: 1vw;
-  padding-left: 1vw;
-  padding-top: 0.2vw;
-  padding-bottom: 0.2vw;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 .footer-copy {
@@ -36,9 +38,11 @@ footer {
 /* Style properties for nav bar*/
 header {
   position: -webkit-sticky; /* Safari*/
-  position: sticky;
+  position: fixed;
   top: 0;
   display:block;
+  width: 100%;
+  height: 80px;
 }
 
 header button {
@@ -48,7 +52,7 @@ header button {
   border-radius: 0;
   border-style: none;
   background-color: inherit;
-  font-size: 1vw;
+  font-size: 20px;
 }
 
 header button:hover {
@@ -58,7 +62,7 @@ header button:hover {
 .header-wrapper {
   background-color: #111;
   display: flex;
-  padding: 1vw;
+  padding: 20px;
 }
 
 .header-flex-left {
@@ -91,16 +95,16 @@ header button:hover {
 /* Style properties for search bar */
 
 .search-bar {
-  position: -webkit-sticky; /* Safari*/
-  position: sticky;
-  top: 0;
+  position: fixed;
+  width: 100%;
+  top: 80px;
   display:block;
   background-color: pink;
   display: none;
 }
 
 .search-bar label {
-  margin-right: 1vw;
+  margin-right: 20px;
   color: #76595E;
 }
 

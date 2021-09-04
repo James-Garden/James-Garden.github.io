@@ -12,8 +12,9 @@
       throw new Exception("Error in media type");
     }
     //Code for inserting media record
-    $query = $conn->prepare("INSERT INTO media (name,rating,cover_image,description) VALUES (?,?,?,?)");
-    $query->bind_param("sdss",$name,$rating,$cover,$description);
+    $query = $conn->prepare("INSERT INTO media (name,rating,cover_image,description,media_type) VALUES (?,?,?,?,?)");
+    $query->bind_param("sdsss",$name,$rating,$cover,$description,$media_type);
+    $media_type = $_POST['media_type'];
     $name = $_POST['media_name'];
     $rating = $_POST['media_rating'];
     $cover = $_POST['media_cover'];

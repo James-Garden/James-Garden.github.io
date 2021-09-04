@@ -1,5 +1,6 @@
 <?php include 'header.php'?>
 
+<?php $mysqli = new mysqli("127.0.0.1","php","peanuts","mml",3306); ?>
 <h1>Welcome to MyMediaList!</h1>
 <table style="margin-left:auto;margin-right:auto;width:95%;">
   <tbody>

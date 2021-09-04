@@ -37,6 +37,7 @@ $(document).ready(function(){ //This function triggers when the page is fully lo
   $(".button-close-side-menu").click(function(){
     document.getElementById("sidenav").style.width = "0";
   });
+  //This function allows users to close menus using the ESC key
   $(document).ready(function(){
     $(document).bind('keydown', function(e) {
       if (e.which == 27) {
@@ -45,6 +46,7 @@ $(document).ready(function(){ //This function triggers when the page is fully lo
       }
     });
   });
+  //This function opens and closes the search bar
   $(window).click(function() {
     if ($(".sidenav").css("width")!="0px") {
       document.getElementById("sidenav").style.width = "0";
@@ -54,6 +56,7 @@ $(document).ready(function(){ //This function triggers when the page is fully lo
       $(".search-bar").slideUp("slow");
     }
   });
+  //These functions stop the search and side bars from disappearing when the other is clicked
   $(".sidenav").click(function(event){
     event.stopPropagation();
   });
@@ -62,5 +65,17 @@ $(document).ready(function(){ //This function triggers when the page is fully lo
   });
   $(".button-search").click(function(event){
     event.stopPropagation();
+  });
+  //This function redirects to a php logout page
+  $("#logout-button").click(function(){
+    window.location.replace("logout.php");
+  });
+  //This function makes a log out button appear when hovering over the profile button
+  $(".button-profile").mouseover(function(){
+    $(".logout-dropdown").show();
+  }).mouseout(function() {
+    setTimeout(function() {
+      $(".logout-dropdown").hide();
+    }, 1000);
   });
 });

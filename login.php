@@ -17,4 +17,5 @@
   <button type="submit">Log In</button>
 </form>
 
+<p>Don't have an account? <a href="registration.php">Click here!</a></p>
 <?php include 'footer.php'?>

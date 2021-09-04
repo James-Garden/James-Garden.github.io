@@ -20,4 +20,6 @@
   <button type="submit">Sign Up</button>
 </form>
 
+<p>Already have an account? <a href="login.php">Click here!</a></p>
+
 <?php include 'footer.php'?>

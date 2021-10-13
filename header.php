@@ -9,7 +9,6 @@ require('functions.php');
   <meta charset="UTF-8">
   <title>My Media List</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="search.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="script.js" defer></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">

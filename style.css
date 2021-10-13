@@ -186,3 +186,97 @@ header button:hover {
 .button-close-side-menu {
   font-size: 1vw;
 }
+
+/*Styling for search page*/
+
+.search-cover {
+  width:100px;
+  height:100%;
+}
+
+.search-flex-right {
+  display: inline-flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-end;
+}
+
+.search-results {
+  width: 100%;
+}
+
+.search-info-table {
+  width: 100%;
+}
+
+
+.search-info-cell {
+  display: inline-table;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/*Styling for profile page*/
+
+.profile-wrapper {
+  margin-left: 100px;
+  margin-right: 100px;
+  border-top: solid;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start; 
+}
+
+.profile-inner-wrapper {
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  border-left: solid;
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.profile-left-col {
+  flex-basis: 20%;
+  margin-right: 20px;
+  padding: 20px;
+}
+
+.profile-mid-col {
+  flex-basis: 50%;
+  margin-right: 20px;
+  border-bottom: solid;
+  padding-bottom: 20px;
+}
+
+.profile-right-col {
+  flex-basis: 10% ;
+  flex-grow: 1;
+  border-bottom: solid;
+  padding-bottom: 20px;
+}
+
+.profile-favourites {
+  margin-top: 20px;
+  flex-basis: 100%;
+  
+}
+
+.avatar {
+  text-align: center;
+}
+
+.username {
+  margin-left: 100px;
+}
+
+.user-info {
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.info-box {
+  display: flex;
+  flex-basis: 100%;
+}

@@ -1,7 +1,7 @@
 <?php include('header.php');?>
 
 <?php
-$conn = new mysqli("127.0.0.1","root","C1aran!183","mml",3306); //Attempts to connect to MySQL database
+$conn = new mysqli("mml.cpzqthyuc4xm.eu-west-2.rds.amazonaws.com","admin","2cqX4g9DYwEzHXzyDdVx","mml",3306); //Attempts to connect to MySQL database
 
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);

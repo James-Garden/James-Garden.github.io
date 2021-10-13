@@ -1,7 +1,7 @@
 <?php
 
 function isAdmin() {
-  $admin_conn = new mysqli("127.0.0.1","root","C1aran!183","mml",3306); //Attempts to connect to MySQL database
+  $admin_conn = new mysqli("mml.cpzqthyuc4xm.eu-west-2.rds.amazonaws.com","admin","2cqX4g9DYwEzHXzyDdVx","mml",3306); //Attempts to connect to MySQL database
 
   if ($admin_conn->connect_error) {
     die("Connection failed: " . $admin_conn->connect_error);

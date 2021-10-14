@@ -36,7 +36,7 @@ while ($row = $result->fetch_array(MYSQLI_NUM)) {
 
   echo "
 <tr class='search-result'>
-  <td class='search-cover-col'><img src='cover_images/{$row[3]}' class='search-cover'></td>
+  <td class='search-cover-col'><img src='https://mymedialist.s3.eu-west-2.amazonaws.com/cover_images/{$row[3]}' class='search-cover'></td>
   <td class='search-info-col'>
     <table class='search-info-table'>
       <tbody class='search-info-body'>

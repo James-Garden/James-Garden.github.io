@@ -69,7 +69,7 @@ $date_joined = $date->format('M d, Y');
 <div class="profile-wrapper">
 	<div class="profile-left-col">
 		<div class="avatar"> 
-			<?php echo "<img src='avatars/{$avatar}' id='avatar'>";?>
+			<?php echo "<img src='https://mymedialist.s3.eu-west-2.amazonaws.com/avatars/{$avatar}' id='avatar'>";?>
 		</div>
 		<div class="user-info"> 
 			<?php 

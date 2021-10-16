@@ -7,7 +7,16 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$stmt = "SELECT * FROM user WHERE user_id={$_SESSION['user_id']}";
+if (!empty($_GET['user_id'])) {
+  $uid = $_GET['user_id'];
+} elseif (!empty($_SESSION['user_id'])) {
+  $uid = $_SESSION['user_id'];
+} else {
+  header("Location: login.php");
+  die();
+}
+
+$stmt = "SELECT * FROM user WHERE user_id={$uid}";
 $query = $conn->prepare($stmt);
 $query->execute();
 $result = $query->get_result();
@@ -68,11 +77,11 @@ $date_joined = $date->format('M d, Y');
 </div>
 <div class="profile-wrapper">
 	<div class="profile-left-col">
-		<div class="avatar"> 
+		<div class="avatar">
 			<?php echo "<img src='https://mymedialist.s3.eu-west-2.amazonaws.com/avatars/{$avatar}' id='avatar'>";?>
 		</div>
-		<div class="user-info"> 
-			<?php 
+		<div class="user-info">
+			<?php
 			echo "<div class='info-box'><p>Last Online</p>";
 			echo "{$last_online}</div>";
 			echo "<div class='info-box'><p>Date Joined</p>";

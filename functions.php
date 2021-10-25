@@ -8,21 +8,17 @@ function checkenv() {
   }
 }
 
-if (!checkenv()){
-  require 'vendor/autoload.php';
-
-  use Aws\S3\S3Client;
-
-  use Aws\Exception\AwsException;
-}
+require 'vendor/autoload.php';
+use Aws\S3\S3Client;
+use Aws\Exception\AwsException;
+$s3 = new Aws\S3\S3Client([
+  'version' => 'latest',
+  'region' => 'eu-west-2'
+]);
 
 
 session_start();
 
-$s3 = new Aws\S3\S3Client([
-    'version' => 'latest',
-    'region' => 'eu-west-2'
-]);
 
 
 

@@ -1,12 +1,22 @@
 <?php
-require 'vendor/autoload.php';
+function checkenv() {
+  $whitelist = array('127.0.0.1','::1');
+  if(in_array($_SERVER['REMOTE_ADDR'],$whitelist)) { //Checks if user is in development environment
+    return true;
+  } else {
+    return false;
+  }
+}
 
-use Aws\S3\S3Client;
+if (!checkenv()){
+  require 'vendor/autoload.php';
 
-use Aws\Exception\AwsException;
-?>
+  use Aws\S3\S3Client;
 
-<?php
+  use Aws\Exception\AwsException;
+}
+
+
 session_start();
 
 $s3 = new Aws\S3\S3Client([
@@ -14,9 +24,10 @@ $s3 = new Aws\S3\S3Client([
     'region' => 'eu-west-2'
 ]);
 
+
+
 function openconn() {
-  $whitelist = array('127.0.0.1','::1');
-  if(in_array($_SERVER['REMOTE_ADDR'],$whitelist)) { //Checks if user is in development environment
+  if(checkenv()) { //Checks if user is in development environment
     $conn = new mysqli("localhost","root","C1aran!183","mml",3306); //Attempts to connect to MySQL database
   } else {
     $conn = new mysqli("mml.cpzqthyuc4xm.eu-west-2.rds.amazonaws.com","admin","2cqX4g9DYwEzHXzyDdVx","mml",3306); //Attempts to connect to MySQL database

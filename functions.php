@@ -1,12 +1,21 @@
 <?php
+session_start();
+
+function openconn() {
+  $whitelist = array('127.0.0.1','::1');
+  if(in_array($_SERVER['REMOTE_ADDR'],$whitelist)) { //Checks if user is in development environment
+    $conn = new mysqli("localhost","root","C1aran!183","mml",3306); //Attempts to connect to MySQL database
+  } else {
+    $conn = new mysqli("mml.cpzqthyuc4xm.eu-west-2.rds.amazonaws.com","admin","2cqX4g9DYwEzHXzyDdVx","mml",3306); //Attempts to connect to MySQL database
+  }
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+  return $conn;
+}
 
 function isAdmin() {
-  $admin_conn = new mysqli("mml.cpzqthyuc4xm.eu-west-2.rds.amazonaws.com","admin","2cqX4g9DYwEzHXzyDdVx","mml",3306); //Attempts to connect to MySQL database
-
-  if ($admin_conn->connect_error) {
-    die("Connection failed: " . $admin_conn->connect_error);
-  }
-  session_start();
+  $conn = openconn();
   try {
 
     if (empty($_SESSION['user_id'])){
@@ -14,7 +23,7 @@ function isAdmin() {
     }
     $this_user_id = $_SESSION['user_id'];
     $stmt = "SELECT admin_id FROM admin WHERE admin_id =" . $this_user_id;
-    $query = $admin_conn->prepare($stmt);
+    $query = $conn->prepare($stmt);
     $query->execute();
     $query->store_result();
     $query->bind_result($admin_query);
@@ -25,10 +34,10 @@ function isAdmin() {
     }
   }
   catch(Exception $e) {
-    $admin_conn->close();
+    $conn->close();
     return false;
   }
-  $admin_conn->close();
+  $conn->close();
   return true;
 }
 

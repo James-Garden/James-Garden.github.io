@@ -1,11 +1,7 @@
 <?php include 'header.php';?>
 
 <?php
-$conn = new mysqli("mml.cpzqthyuc4xm.eu-west-2.rds.amazonaws.com","admin","2cqX4g9DYwEzHXzyDdVx","mml",3306);
-
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+$conn = openconn();
 
 if (!empty($_GET['user_id'])) {
   $uid = $_GET['user_id'];

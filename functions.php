@@ -8,7 +8,7 @@ function checkenv() {
   }
 }
 
-require 'vendor/autoload.php';
+require_once 'vendor/autoload.php';
 use Aws\S3\S3Client;
 use Aws\Exception\AwsException;
 $s3 = new Aws\S3\S3Client([
@@ -16,11 +16,7 @@ $s3 = new Aws\S3\S3Client([
   'region' => 'eu-west-2'
 ]);
 
-
 session_start();
-
-
-
 
 function openconn() {
   if(checkenv()) { //Checks if user is in development environment

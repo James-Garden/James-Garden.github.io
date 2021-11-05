@@ -1,2 +1,4 @@
-cover_images/
+avatars/
 php_dev_server.bat
+vendor/
+composer.*

@@ -16,6 +16,8 @@
   <input type="date" name="reg-dob"><br>
   <p>Phone Number</p>
   <input type="tel" name="reg-tel" placeholder="Phone Number" required><br>
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  <div class="h-captcha" data-sitekey="a7576f7e-ff2b-47d3-8204-3e4b6afb5c16"></div><br>
   <br>
   <button type="submit">Sign Up</button>
 </form>

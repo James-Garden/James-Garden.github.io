@@ -78,4 +78,10 @@ $(document).ready(function(){ //This function triggers when the page is fully lo
       $(".logout-dropdown").hide();
     }, 1000);
   });
+  //This function triggers adding an item to a list
+  $('.addToList').click(function(event){
+    let url = "add_to_list.php?media_id="+event.target.id.substring(1);
+    window.location.replace(url);
+  });
 });
+

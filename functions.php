@@ -65,4 +65,10 @@ function invoke401() {
   die();
 }
 
+function addToListBtn($mediaId) {
+  //TODO add checks for if already on list
+  $btn = "<button type='button' class='btn btn-link addToList' id=m{$mediaId}>Add</button>";
+  return $btn;
+}
+
 ?>

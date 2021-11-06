@@ -13,7 +13,6 @@ if (mysqli_num_rows($result)==0) {
 }
 echo "<table class='search-results'><tbody>";
 while ($row = $result->fetch_array(MYSQLI_NUM)) {
-  //echo "<tr><td>{$row[1]}</td></tr>";
   $score = number_format($row[2],1);
   if (empty($row[5])) {
     $members = 0;
@@ -29,6 +28,7 @@ while ($row = $result->fetch_array(MYSQLI_NUM)) {
   } else {
     $title = "<i class='bi bi-question-circle'> </i>".$row[1];
   }
+  $btn = addToListBtn($row[0]);
 
   echo "
 <tr class='search-result'>
@@ -40,6 +40,7 @@ while ($row = $result->fetch_array(MYSQLI_NUM)) {
           <td colspan='1' class='search-info-cell'>{$title}</td>
           <td colspan='1' class='search-info-cell'><i class='bi bi-star'> </i>{$score}</td>
           <td colspan='1' class='search-info-cell'><i class='bi bi-person'> </i>{$members}</td>
+          <td colspan='1' class='search-info-cell'>{$btn}</td>
         </tr>
         <tr class='search-info-description'>
           <td colspan='4' class='search-description'>{$row[4]}</td>

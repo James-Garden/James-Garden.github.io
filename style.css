@@ -13,7 +13,7 @@ main {
 
 /* Style properties for footer */
 footer {
-  position: fixed;
+  position: static;
   display: block;
   bottom: 0;
   background-color: #111;
@@ -142,7 +142,7 @@ header button:hover {
   min-height: 100%;
   box-sizing: border-box;
   width: 0;
-  position: absolute;
+  position: fixed;
   z-index: 1;
   top: 0;
   left: 0;

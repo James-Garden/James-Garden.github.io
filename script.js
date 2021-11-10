@@ -83,5 +83,15 @@ $(document).ready(function(){ //This function triggers when the page is fully lo
     let url = "add_to_list.php?media_id="+event.target.id.substring(1);
     window.location.replace(url);
   });
+  //Buttons for going to list pages
+  $('#film-list-link').click(function(){
+    window.location.assign("list.php?list=films");
+  });
+  $('#tv-list-link').click(function(){
+    window.location.assign("list.php?list=tv");
+  });
+  $('#book-list-link').click(function(){
+    window.location.assign("list.php?list=books");
+  });
 });
 

@@ -1,19 +1,27 @@
 /* Style properties for main content*/
 body {
-  font-family: Calibri, Arial, sans-serif;
-  display:inline;
   margin:0;
+  min-height: 100%;
 }
 
 main {
   padding: 10px;
   margin-top: 80px;
   margin-bottom: 60px;
+  min-height: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a {
+  color: inherit;
 }
 
 /* Style properties for footer */
 footer {
-  position: static;
+  position: fixed;
   display: block;
   bottom: 0;
   background-color: #111;
@@ -279,4 +287,34 @@ header button:hover {
 .info-box {
   display: flex;
   flex-basis: 100%;
+}
+
+.user-list-links {
+  display: flex;
+  text-align: center;
+}
+
+button.user-list-links {
+  flex-grow: 1;
+  flex-basis: 33%;
+  margin-right: 10px;
+
+}
+
+button.user-list-links:last-child {
+  margin-right: 0px;
+}
+
+
+
+/*Style for login page*/
+
+div.login-form-wrapper {
+  margin: 50px;
+  padding: 20px;
+}
+
+p.login-error-msg {
+  color: #E00;
+  font-size: ;
 }

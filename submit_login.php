@@ -28,6 +28,8 @@
       $_SESSION['user_id'] = $id_query;
       $_SESSION['username'] = $username;
       $_SESSION['loggedIn'] = true;
+      updateLastOnline($conn,$_SESSION['user_id']);
+      $conn->close();
       header("Location: profile.php");
     } else { //If password incorrect
       header("Location: login.php?incorrectPassword=true");
@@ -38,8 +40,6 @@
     echo "An error has occurred, this incident will be reported automatically.";
     die("Error message: " . $e->getMessage());
   }
-  $get_id->close();
-  $get_password->close();
   $conn->close();
 ?>
 

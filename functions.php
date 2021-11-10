@@ -66,9 +66,16 @@ function invoke401() {
 }
 
 function addToListBtn($mediaId) {
+  //This function returns the correct button depending on whether a user has an item in their list or not
   //TODO add checks for if already on list
   $btn = "<button type='button' class='btn btn-link addToList' id=m{$mediaId}>Add</button>";
   return $btn;
 }
 
-?>
+function updateLastOnline($conn,$user_id) {
+  //This function sets the last time a user was online to the current time and date
+  //UPDATE user SET last_online=now() WHERE user_id=?;
+  $query = $conn->prepare("UPDATE user SET last_online=now() WHERE user_id=?");
+  $query->bind_param("i",$user_id);
+  $query->execute();
+}

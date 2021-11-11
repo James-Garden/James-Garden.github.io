@@ -33,11 +33,11 @@ if ($_SESSION['loggedIn']) {
 		$query->execute();
 		$result = $query->get_result();
 		$type = ($result->fetch_array())[0];
-
 		//If all checks pass, add it to the list
 		//Create a list entry
-		$query = $conn->prepare("INSERT INTO user_list_entry (user_id,media_id) VALUES (?,?)");
-		$query->bind_param("ii",$_SESSION['user_id'],$media_id);
+		$query->close();
+		$query = $conn->prepare("INSERT INTO user_list_entry (user_id,media_id,entry_type) VALUES (?,?,?)");
+		$query->bind_param("iis",$_SESSION['user_id'],$media_id,$type);
 		$query->execute();
 		$query->close();
 		//Create a specific list entry for the media type

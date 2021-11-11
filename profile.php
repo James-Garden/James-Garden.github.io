@@ -86,7 +86,7 @@ $date_joined = $date->format('M d, Y');
 		</div>
 		<div class="user-list-links">
 			<button type="button" class="btn btn-dark user-list-links" id="film-list-link"><a href="list.php?list=films"><i class="bi bi-film"></i> Films</a></button>
-			<button type="button" class="btn btn-dark user-list-links" id="tv-list-link"><a href="list.php?list=tv"><i class="bi bi-tv"></i> TV</a></button>
+			<button type="button" class="btn btn-dark user-list-links" id="tv-list-link"><a href="list.php?list=tv_series"><i class="bi bi-tv"></i> TV</a></button>
 			<button type="button" class="btn btn-dark user-list-links" id="book-list-link"><a href="list.php?list=books"><i class="bi bi-book"></i> Books</a></button>
 		</div>
 	</div>

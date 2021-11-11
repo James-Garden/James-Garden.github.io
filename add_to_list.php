@@ -28,12 +28,40 @@ if ($_SESSION['loggedIn']) {
 			throw new Exception("Media already in list!");
 		}
 		$query->close();
+		$query = $conn->prepare("SELECT media_type FROM media WHERE (media_id=?)");
+		$query->bind_param("i",$media_id);
+		$query->execute();
+		$result = $query->get_result();
+		$type = ($result->fetch_array())[0];
+
 		//If all checks pass, add it to the list
+		//Create a list entry
 		$query = $conn->prepare("INSERT INTO user_list_entry (user_id,media_id) VALUES (?,?)");
 		$query->bind_param("ii",$_SESSION['user_id'],$media_id);
 		$query->execute();
+		$query->close();
+		//Create a specific list entry for the media type
+		$entry_id = $conn->insert_id;
+		if ($type === 'tv_series') {
+			$query = $conn->prepare("INSERT INTO user_tv_list_entry (entry_id) VALUES (?)");
+			$query->bind_param("i",$entry_id);
+			$query->execute();
+			$query->close();
+		} elseif ($type === 'film') {
+			$query = $conn->prepare("INSERT INTO user_film_list_entry (entry_id) VALUES (?)");
+			$query->bind_param("i",$entry_id);
+			$query->execute();
+			$query->close();
+		} else {
+			$query = $conn->prepare("INSERT INTO user_book_list_entry (entry_id) VALUES (?)");
+			$query->bind_param("i",$entry_id);
+			$query->execute();
+			$query->close();
+		}
+
+		//Close the connection and redirect to the list
 		$conn->close();
-		header("Location: list.php");
+		header("Location: list.php?list=".$type);
 	} catch(Exception $e) {
 		die("Error: ".$e->getMessage());
 	}

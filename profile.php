@@ -85,9 +85,9 @@ $date_joined = $date->format('M d, Y');
 			?>
 		</div>
 		<div class="user-list-links">
-			<button type="button" class="btn btn-dark user-list-links" id="film-list-link"><a href="list.php?list=films"><i class="bi bi-film"></i> Films</a></button>
-			<button type="button" class="btn btn-dark user-list-links" id="tv-list-link"><a href="list.php?list=tv_series"><i class="bi bi-tv"></i> TV</a></button>
-			<button type="button" class="btn btn-dark user-list-links" id="book-list-link"><a href="list.php?list=books"><i class="bi bi-book"></i> Books</a></button>
+			<button type="button" class="btn btn-dark user-list-links" id="film-list-link"><a title="Go to film list" class="user-list-links"><i class="bi bi-film"></i>&nbsp;Films</a></button>
+			<button type="button" class="btn btn-dark user-list-links" id="tv-list-link"><a title="Go to tv list" class="user-list-links"><i class="bi bi-tv"></i>&nbsp;TV</a></button>
+			<button type="button" class="btn btn-dark user-list-links" id="book-list-link"><a title="Go to book list" class="user-list-links"><i class="bi bi-book"></i>&nbsp;Books</a></button>
 		</div>
 	</div>
 	<div class="profile-inner-wrapper">

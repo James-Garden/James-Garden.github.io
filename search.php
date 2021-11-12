@@ -28,7 +28,12 @@ while ($row = $result->fetch_array(MYSQLI_NUM)) {
   } else {
     $title = "<i class='bi bi-question-circle'> </i>".$row[1];
   }
-  $btn = addToListBtn($row[0]);
+  if ($_SESSION['loggedIn']) {
+    $btn = addToListBtn($row[0]);
+  } else {
+    $btn = "";
+  }
+
 
   echo "
 <tr class='search-result'>

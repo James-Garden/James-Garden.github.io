@@ -61,7 +61,13 @@ if ($_SESSION['loggedIn']) {
 
 		//Close the connection and redirect to the list
 		$conn->close();
-		header("Location: list.php?list=".$type);
+		if($type==='book') {
+			header("Location: list.php?list=books");
+		} elseif ($type==='film') {
+			header("Location: list.php?list=films");
+		} else {
+			header("Location: list.php?list=tv");
+		}
 	} catch(Exception $e) {
 		die("Error: ".$e->getMessage());
 	}

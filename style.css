@@ -298,7 +298,7 @@ button.user-list-links {
   flex-grow: 1;
   flex-basis: 33%;
   margin-right: 10px;
-
+  justify-content: center;
 }
 
 button.user-list-links:last-child {
@@ -317,4 +317,66 @@ div.login-form-wrapper {
 p.login-error-msg {
   color: #E00;
   font-size: ;
+}
+
+/*Style for the list page */
+
+div.list-wrapper {
+  margin-right: 200px;
+  margin-left: 200px;
+}
+
+table.list-table {
+  width: 100%;
+}
+
+img.list-cover-image {
+  width:100px;
+  height:100%;
+}
+
+td.list-cell {
+  padding: 10px;
+  text-align: center;
+}
+
+td.list-title-cell {
+  text-align: left;
+}
+
+th.list-header {
+  padding: 10px;
+  text-align: center;
+}
+
+th.list-header-title {
+  text-align: left;
+}
+
+td.list-number-cell, th.list-header-number {
+  padding-left: 50px;
+}
+
+td.list-notes-cell, th.list-header-notes {
+  padding-right: 50px;
+}
+
+tr.list-row-odd {
+  background-color: #FFF;
+}
+
+tr.list-row-even {
+  background-color: #EEE;
+}
+
+th.list-header-title, th.list-title-cell {
+  width: 100%;
+}
+
+td.list-header-status {
+  justify-content: center;
+}
+
+.status-button {
+  width: 100%;
 }

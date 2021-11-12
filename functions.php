@@ -79,3 +79,111 @@ function updateLastOnline($conn,$user_id) {
   $query->bind_param("i",$user_id);
   $query->execute();
 }
+
+function status_button($status,$list) {
+  if ($list == 'books') {
+    if (empty($status) || $status=='in_progress') {
+      return "<button type='button' class='btn btn-success status-button'>Reading</button>";
+    } elseif($status == 'complete') {
+      return "<button type='button' class='btn btn-primary status-button'>Completed</button>";
+    } elseif($status == 'dropped') {
+      return "<button type='button' class='btn btn-danger status-button'>Dropped</button>";
+    } elseif($status == 'planned') {
+      return "<button type='button' class='btn btn-secondary status-button'>Plan to Read</button>";
+    } elseif($status == 'on_hold') {
+      return "<button type='button' class='btn btn-warning status-button'>On Hold</button>";
+    }
+  } else {
+    if (empty($status) || $status=='in_progress') {
+      return "<button type='button' class='btn btn-success status-button'>Watching</button>";
+    } elseif($status == 'complete') {
+      return "<button type='button' class='btn btn-primary status-button'>Completed</button>";
+    } elseif($status == 'dropped') {
+      return "<button type='button' class='btn btn-danger status-button'>Dropped</button>";
+    } elseif($status == 'planned') {
+      return "<button type='button' class='btn btn-secondary status-button'>Plan to Watch</button>";
+    } elseif($status == 'on_hold') {
+      return "<button type='button' class='btn btn-warning status-button'>On Hold</button>";
+    }
+  }
+}
+
+function getBookList($conn,$user_id) {
+  //Returns a users book list
+  $query = $conn->prepare("SELECT ul.media_id,m.name,ul.rating,ul.status,ul.notes,ubl.chapters_read,m.cover_image
+ FROM ((user_list_entry ul 
+ INNER JOIN user_book_list_entry ubl ON ul.entry_id=ubl.entry_id) 
+ INNER JOIN media m ON ul.media_id=m.media_id) 
+ WHERE user_id=(?);");
+  $query->bind_param("i",$user_id);
+  $query->execute();
+  $query->store_result();
+  $row_count = $query->num_rows;
+  $query->bind_result($book_id,$book_title,$book_rating,$book_status,$book_notes,$chapters_read,$book_cover_image);
+  $book_list = array();
+  while ($query->fetch()) {
+    $book_list[] = array(
+      "book_id" => $book_id,
+      "book_title" => $book_title,
+      "book_rating" => $book_rating,
+      "book_status" => $book_status,
+      "book_notes" => $book_notes,
+      "chapters_read" => $chapters_read,
+      "book_cover_image" => $book_cover_image,
+    );
+  }
+  return $book_list;
+}
+
+function getFilmList($conn,$user_id) {
+  //Returns a users film list
+  $query = $conn->prepare("SELECT ul.media_id,m.name,ul.rating,ul.status,ul.notes,m.cover_image
+ FROM ((user_list_entry ul 
+ INNER JOIN user_film_list_entry ufl ON ul.entry_id=ufl.entry_id) 
+ INNER JOIN media m ON ul.media_id=m.media_id) 
+ WHERE user_id=(?);");
+  $query->bind_param("i",$user_id);
+  $query->execute();
+  $query->store_result();
+  $row_count = $query->num_rows;
+  $query->bind_result($film_id,$film_title,$film_rating,$film_status,$film_notes,$film_cover_image);
+  $film_list = array();
+  while ($query->fetch()) {
+    $film_list[] = array(
+      "film_id" => $film_id,
+      "film_title" => $film_title,
+      "film_rating" => $film_rating,
+      "film_status" => $film_status,
+      "film_notes" => $film_notes,
+      "film_cover_image" => $film_cover_image,
+    );
+  }
+  return $film_list;
+}
+
+function getTvList($conn,$user_id) {
+  //Returns a users tv list
+  $query = $conn->prepare("SELECT ul.media_id,m.name,ul.rating,ul.status,ul.notes,utl.eps_watched,m.cover_image
+ FROM ((user_list_entry ul 
+ INNER JOIN user_tv_list_entry utl ON ul.entry_id=utl.entry_id) 
+ INNER JOIN media m ON ul.media_id=m.media_id) 
+ WHERE user_id=(?);");
+  $query->bind_param("i",$user_id);
+  $query->execute();
+  $query->store_result();
+  $row_count = $query->num_rows;
+  $query->bind_result($tv_id,$tv_title,$tv_rating,$tv_status,$tv_notes,$eps_watched,$tv_cover_image);
+  $tv_list = array();
+  while ($query->fetch()) {
+    $tv_list[] = array(
+      "tv_id" => $tv_id,
+      "tv_title" => $tv_title,
+      "tv_rating" => $tv_rating,
+      "tv_status" => $tv_status,
+      "tv_notes" => $tv_notes,
+      "eps_watched" => $eps_watched,
+      "tv_cover_image" => $tv_cover_image,
+    );
+  }
+  return $tv_list;
+}
